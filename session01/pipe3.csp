@@ -1,0 +1,13 @@
+Receiver || Sender || (Network ||| Network)
+Sender = (
+	send_package -> Sender |
+	send_close -> SKIP alpha Sender
+)
+Receiver = (
+	receive_package -> Receiver |
+	receive_close -> SKIP alpha Receiver
+)
+Network = SKIP alpha Network [] (
+	send_package -> receive_package -> Network |
+	send_close -> receive_close -> Network
+)

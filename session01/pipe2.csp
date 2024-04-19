@@ -1,0 +1,4 @@
+Receiver || Sender || (Network ||| Network)
+Sender = (send_package -> Sender)
+Receiver = (receive_package -> Receiver)
+Network = (send_package -> receive_package -> Network)
