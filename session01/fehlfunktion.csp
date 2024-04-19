@@ -1,0 +1,17 @@
+Automat = (
+	muenze50 -> (
+		muenze50 -> (
+			tee -> Automat |
+			muenze50 -> (
+				kaffee -> Automat |
+				muenze50 -> STOP alpha Automat
+			)
+		) |
+		muenze100 -> kaffee -> Automat
+	) |
+	muenze100 -> (
+		tee -> Automat |
+		muenze50 -> kaffee -> Automat |
+		muenze100 -> rueckgabe_muenze50 -> kaffee -> Automat
+	)
+)
