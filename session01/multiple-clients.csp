@@ -1,0 +1,7 @@
+(Client ||| Client ||| Client) || Server || (Network ||| Network ||| Network)
+Client = (send_request -> receive_response -> Client)
+Server = (receive_request -> send_response -> Server)
+Network = (
+	send_request -> receive_request -> Network |
+  send_response -> receive_response -> Network
+)

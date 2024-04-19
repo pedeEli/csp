@@ -1,0 +1,20 @@
+Handshake = Client || Server || Network
+
+Client = (
+	connect -> client_sends_SYN -> (
+		client_receives_SYN_and_ACK -> client_sends_ACK -> client_established -> SKIP alpha Client |
+		client_receives_RST -> Client
+	)
+)
+
+Server = (
+	listen -> server_receives_SYN -> server_sends_SYN_and_ACK -> server_receives_ACK -> server_established -> SKIP alpha Server |
+	server_receives_SYN -> server_sends_RST -> Server
+)
+
+Network = SKIP alpha Network [] (
+	client_sends_SYN -> server_receives_SYN -> Network |
+	server_sends_SYN_and_ACK -> client_receives_SYN_and_ACK -> Network |
+	client_sends_ACK -> server_receives_ACK -> Network |
+	server_sends_RST -> client_receives_RST -> Network
+)
