@@ -1,0 +1,10 @@
+Automat || Kunde
+Automat = GuterAutomat |~| SchlechterAutomat
+GuterAutomat = (muenze -> kaffee -> Automat)
+SchlechterAutomat = (muenze -> Automat)
+Kunde = (
+	muenze -> (
+		kaffee -> Kunde |
+		verliert_geduld -> Kunde
+	)
+)
