@@ -1,0 +1,6 @@
+Counter // Squares
+Squares = (counter?x -> square!(x*x) -> Squares)
+Counter = Storage // Adder
+Adder = (store!0 -> mu X. (recall?x -> store!(x+1) -> counter!x -> X))
+Storage = (store?x -> recall!x -> Storage)
+alpha store = alpha recall = alpha counter = alpha square = integer

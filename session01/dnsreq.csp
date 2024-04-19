@@ -1,4 +1,4 @@
-UDP = Client || Server || Network
+DNS = Client || Server || Network
 
 Server = SKIP alpha Server [] (
 	receive_request -> process_request -> send_response -> Server
